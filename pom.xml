@@ -4,4 +4,12 @@
   <artifactId>2024-advent-code</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>2024 - Advent of Code</name>
+  <dependencies>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.34</version>
+        <optional>true</optional>
+    </dependency>
+  </dependencies>
 </project>
