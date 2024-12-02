@@ -1,4 +1,4 @@
-package fr.home.mikedev.jourone;
+package fr.home.mikedev.days;
 
 import java.io.BufferedReader;
 import java.nio.file.Files;
@@ -8,20 +8,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class MainOne {
-
+public class Main01 {
+	private final String dataFileName = "data-day01.txt";
+	
 	public static void main(String[] args) throws Exception 
 	{
-		MainTwo m1 = new MainTwo();
-		m1.doFirst();
-		m1.doSecond();
+		Main01 m = new Main01();
+		m.doFirst();
+		m.doSecond();
 	}
 	
 	public void doFirst() throws Exception
 	{
 		List<Long> list1 = new ArrayList<Long>();
 		List<Long> list2 = new ArrayList<Long>();
-		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource("day1-data.txt").toURI()));
+		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource(dataFileName).toURI()));
 		String line = null;
 		while ((line = reader.readLine()) != null) 
 		{
@@ -45,7 +46,7 @@ public class MainOne {
 	{
 		List<Long> list1 = new ArrayList<Long>();
 		List<Long> list2 = new ArrayList<Long>();
-		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource("day1-data.txt").toURI()));
+		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource(dataFileName).toURI()));
 		String line = null;
 		while ((line = reader.readLine()) != null) 
 		{
