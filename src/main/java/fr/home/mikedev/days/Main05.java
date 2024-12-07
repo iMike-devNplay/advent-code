@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import fr.home.mikedev.days.utils.Day5Rule;
+import fr.home.mikedev.days.utils.Pair;
 
 public class Main05 {
 
 	private final String dataFileName = "data-day05.txt";
 	
-	List<Day5Rule> rules;
+	List<Pair<Integer>> rules;
 	HashMap<Integer, List<Integer>> rulesBefore;
 	HashMap<Integer, List<Integer>> rulesAfter;
 	
@@ -30,7 +30,7 @@ public class Main05 {
 		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource(dataFileName).toURI()));
 		String line = null;
 		boolean switchPart = false;
-		rules = new ArrayList<Day5Rule>();
+		rules = new ArrayList<Pair<Integer>>();
 		rulesBefore = new HashMap<Integer, List<Integer>>();
 		rulesAfter = new HashMap<Integer, List<Integer>>();
 		
@@ -43,7 +43,7 @@ public class Main05 {
 				if (!switchPart)
 				{
 					StringTokenizer st = new StringTokenizer(line, "|");
-					Day5Rule d5r = Day5Rule.builder().v1(Integer.parseInt(st.nextToken())).v2(Integer.parseInt(st.nextToken())).build();
+					Pair<Integer> d5r = Pair.<Integer>builder().v1(Integer.parseInt(st.nextToken())).v2(Integer.parseInt(st.nextToken())).build();
 					rules.add(d5r);
 					List<Integer> before = rulesBefore.get(d5r.getV1());
 					if (before != null) before.add(d5r.getV2());
@@ -99,7 +99,7 @@ public class Main05 {
 		BufferedReader reader = Files.newBufferedReader(Paths.get(this.getClass().getClassLoader().getResource(dataFileName).toURI()));
 		String line = null;
 		boolean switchPart = false;
-		rules = new ArrayList<Day5Rule>();
+		rules = new ArrayList<Pair<Integer>>();
 		rulesBefore = new HashMap<Integer, List<Integer>>();
 		rulesAfter = new HashMap<Integer, List<Integer>>();
 		
@@ -112,7 +112,7 @@ public class Main05 {
 				if (!switchPart)
 				{
 					StringTokenizer st = new StringTokenizer(line, "|");
-					Day5Rule d5r = Day5Rule.builder().v1(Integer.parseInt(st.nextToken())).v2(Integer.parseInt(st.nextToken())).build();
+					Pair<Integer> d5r = Pair.<Integer>builder().v1(Integer.parseInt(st.nextToken())).v2(Integer.parseInt(st.nextToken())).build();
 					rules.add(d5r);
 					List<Integer> before = rulesBefore.get(d5r.getV1());
 					if (before != null) before.add(d5r.getV2());

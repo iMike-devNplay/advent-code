@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Day5Rule 
+public class Pair<T>
 {
-	Integer v1;
-	Integer v2;
+	T v1;
+	T v2;
 }

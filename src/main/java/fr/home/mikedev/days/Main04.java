@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import fr.home.mikedev.days.utils.MatrixUtils;
+
 public class Main04 {
 
 	private final String dataFileName = "data-day04.txt";
@@ -56,8 +58,8 @@ public class Main04 {
 		System.out.println("+ Diagonal 4          : " + count.toString() + " (" + interm + ")");
 		
 		// 2 b: Search vertical and vertical reversed
-		rotate90(puzzleMatrix);
-		String rotated90 = matrixToString(puzzleMatrix);
+		MatrixUtils.rotate90(puzzleMatrix);
+		String rotated90 = MatrixUtils.matrixToString(puzzleMatrix);
 		count += rotated90.toString().split("XMAS", -1).length-1;
 		System.out.println("+ Vertical            : " + count.toString());
 		count += rotated90.toString().split("SAMX", -1).length-1;
@@ -104,47 +106,6 @@ public class Main04 {
 		System.out.println("Count   : " + count.toString());
 	}
 	
-	public String matrixToString(char[][] matrix)
-	{
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < matrix.length; i++)
-		{
-			for (int j = 0; j < matrix[i].length; j++)
-				sb.append(matrix[i][j]);
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
-	
-	static void rotate90 (char arr[][])
-	{
-		transpose (arr);
-		reverseRows (arr);
-	}
-  
-	static void reverseRows (char mat[][])
-	{
-		int n = mat.length;
-		for (int i = 0; i < mat.length; i++){
-			for (int j = 0; j <  mat.length/ 2; j++)
-			{
-				char temp = mat[i][j];
-				mat[i][j] = mat[i][n - j - 1];
-				mat[i][n - j - 1] = temp;
-			}
-		}    
-	}
-
-	static void transpose (char arr[][])
-	{
-		for (int i = 0; i < arr.length; i++)
-			for (int j = i; j < arr[0].length; j++)
-			{
-				char temp = arr[j][i];
-				arr[j][i] = arr[i][j];
-				arr[i][j] = temp;
-			}
-	}
 	
     public Long checkVerticalTopBottom(char[][] matrix, String word) 
     {

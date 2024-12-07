@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Day6Cursor 
+public class MatrixCoordinate 
 {
 	int c;
 	int l;
