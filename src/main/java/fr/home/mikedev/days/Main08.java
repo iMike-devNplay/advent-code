@@ -17,8 +17,8 @@ import fr.home.mikedev.days.utils.Pair;
 public class Main08 {
 
 	private final String dataFileName = "data-day08.txt";
-	//private char[][] puzzleMatrix = new char[50][50];
-	private char[][] puzzleMatrix = new char[12][12];
+	private char[][] puzzleMatrix = new char[50][50];
+	//private char[][] puzzleMatrix = new char[12][12];
 	private Map<String, List<Pair<Integer>>> antennas;
 	int countAntinode;
 	int countAntinodeAntenna;
@@ -106,6 +106,7 @@ public class Main08 {
 					}
 					else locations.add(Pair.<Integer>builder().v1(l).v2(c).build());
 					antennas.put(String.valueOf(currentChar), locations);
+					countAntinode++;
 				}
 			}
 			l++;
@@ -115,7 +116,7 @@ public class Main08 {
 		System.out.println(MatrixUtils.matrixToString(puzzleMatrix));
 		System.out.println(antennas);
 		
-		countAntinode = 0;
+		//countAntinode = 0;
 		countAntinodeAntenna = 0;
 				
 		viewedAntennas = new HashMap<Pair<Integer>, String>();
@@ -210,17 +211,62 @@ public class Main08 {
 				break;
 			case "DR":
 				System.out.println("DR=" + p1 + "->" + p2);
-				an1 = Pair.<Integer>builder().v1(p1.getV1()-Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()))).v2(p1.getV2()-Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()))).build();
-				an2 = Pair.<Integer>builder().v1(p2.getV1()+Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()))).v2(p2.getV2()+Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()))).build();
-				an1Done = putAntinode(an1);
-				an2Done = putAntinode(an2);
+				Pair<Integer> p1Current = p1;
+				Pair<Integer> p2Current = p2;
+				boolean moreAntennas = true;
+				while (moreAntennas)
+				{
+					Integer index1L = Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()));
+					Integer index1C = Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()));
+					an1 = Pair.<Integer>builder().v1(p1Current.getV1()-index1L).v2(p1Current.getV2()-index1C).build();
+				
+					Integer index2L = Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()));
+					Integer index2C = Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()));
+					an2 = Pair.<Integer>builder().v1(p2Current.getV1()+index2L).v2(p2Current.getV2()+index2C).build();
+					
+					an1Done = putAntinode(an1);
+					if (moreAntennas) p1Current = an1;
+					
+					an2Done = putAntinode(an2);
+					if (moreAntennas) p2Current = an2;
+					
+					if (an1Done || an2Done) moreAntennas = true;
+					else moreAntennas = false;
+					
+					if (part1) moreAntennas = false;
+				}
 				break;
 			case "DL":
 				System.out.println("DL=" + p1 + "->" + p2);
-				an1 = Pair.<Integer>builder().v1(p1.getV1()-Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()))).v2(p1.getV2()+Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()))).build();
+				p1Current = p1;
+				p2Current = p2;
+				moreAntennas = true;
+				while (moreAntennas)
+				{
+					Integer index1L = Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()));
+					Integer index1C = Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()));
+					an1 = Pair.<Integer>builder().v1(p1Current.getV1()-index1L).v2(p1Current.getV2()+index1C).build();
+				
+					Integer index2L = Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()));
+					Integer index2C = Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()));
+					an2 = Pair.<Integer>builder().v1(p2Current.getV1()+index2L).v2(p2Current.getV2()-index2C).build();
+					
+					an1Done = putAntinode(an1);
+					if (moreAntennas) p1Current = an1;
+					
+					an2Done = putAntinode(an2);
+					if (moreAntennas) p2Current = an2;
+					
+					if (an1Done || an2Done) moreAntennas = true;
+					else moreAntennas = false;
+					
+					if (part1) moreAntennas = false;
+				}
+				
+				/*an1 = Pair.<Integer>builder().v1(p1.getV1()-Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()))).v2(p1.getV2()+Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()))).build();
 				an2 = Pair.<Integer>builder().v1(p2.getV1()+Integer.valueOf(Math.abs(p1.getV1()-p2.getV1()))).v2(p2.getV2()-Integer.valueOf(Math.abs(p1.getV2()-p2.getV2()))).build();
 				an1Done = putAntinode(an1);
-				an2Done = putAntinode(an2);
+				an2Done = putAntinode(an2);*/
 				break;
 			case "Ux":
 				System.out.println("Ux=" + p1 + "->" + p2);
@@ -245,12 +291,12 @@ public class Main08 {
 				break;
 		}
 		
-		if (!part1)
+		/*if (!part1)
 		{
 			if (an1Done && an2Done) return null;
 			else if (an1Done && !an2Done) revertAn(an1);
 			else if (!an1Done && an2Done) revertAn(an2);
-		}
+		}*/
 		return null;
 	}
 	
