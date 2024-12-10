@@ -25,10 +25,12 @@ public class Main12 extends MainDay
 	public void doPart1()
 	{
 		retrieveData();
+		displayResultPart1(0);
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
+		displayResultPart2(0);
 	}
 }
