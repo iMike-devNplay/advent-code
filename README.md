@@ -1,7 +1,6 @@
 <html>
 <body>
 <h1>Advent Of Code</h1>
-
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
   2024 - 26 ⭐ - Java
