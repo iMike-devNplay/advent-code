@@ -52,4 +52,15 @@ public class MatrixUtils
 			}
 	}
 
+    public static boolean isOutsideMatrix(Pair<Integer> plot, int matrixSize)
+    {
+        if (plot.getV1() < 0 || plot.getV1() > matrixSize-1 || plot.getV2() < 0 || plot.getV2() > matrixSize-1) return true;
+        else return false;
+    }
+    
+    public static boolean isOutsideMatrix(int l, int c, int matrixSize)
+    {
+        if (l < 0 || l > matrixSize-1 || c < 0 || c > matrixSize-1) return true;
+        else return false;
+    }
 }

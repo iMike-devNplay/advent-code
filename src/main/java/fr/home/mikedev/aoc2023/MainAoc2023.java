@@ -4,7 +4,6 @@ import fr.home.mikedev.MainAoc;
 
 public class MainAoc2023 
 {
-
 	public MainAoc2023(String day)
 	{
 		MainAoc.log("##################################");
@@ -14,12 +13,12 @@ public class MainAoc2023
 		MainAoc.log("##################################");
 		MainAoc.log("");
 		/*Main01 m1 = new Main01("Trebuchet?!", "2023");
-		m1.doPartAll();*/
+		m1.doPartAll();
 		Main02 m2 = new Main02("Cube Conundrum", "2023");
-		m2.doPartAll();
-		/*Main03 m3 = new Main03("", "2023");
+		m2.doPartAll();*/
+		Main03 m3 = new Main03("Gear Ratios", "2023");
 		m3.doPartAll();
-		Main04 m4 = new Main04("", "2023");
+		/*Main04 m4 = new Main04("", "2023");
 		m4.doPartAll();
 		Main05 m5 = new Main05("", "2023");
 		m5.doPartAll();

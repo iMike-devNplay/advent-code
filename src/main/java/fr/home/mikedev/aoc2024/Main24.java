@@ -14,7 +14,10 @@ public class Main24 extends MainDay
 		String line = null;	
 		try(BufferedReader reader = this.getReader())
 		{
-			log(line);
+            while((line = reader.readLine()) != null)
+            {
+                log(line);
+            }
 		}
 		catch (Exception ex)
 		{

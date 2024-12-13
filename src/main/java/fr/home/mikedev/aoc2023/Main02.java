@@ -54,8 +54,7 @@ public class Main02 extends MainDay
 	{
 		games = new HashMap<Integer, List<List<Pair<String>>>>();
 		retrieveData();
-		
-		log(games);
+
 		int gameOk = 0;
 		
 		for (Integer gameId : games.keySet())

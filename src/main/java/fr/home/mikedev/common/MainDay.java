@@ -45,43 +45,43 @@ public abstract class MainDay
 	public void doPartAll()
 	{
 		log("");
-		log("#####################");
+		log("####################");
 		log("# " + title);
-		log("#####################");
-		log("####  " + year + " - " + day  + " ####");
-		log("#####################");
+		log("####################");
+		log("####  " + year + " - " +  day + " ####");
+		log("####################");
 		doPart1();
 		doPart2();
 	}
 	
 	public void doPart1()
 	{
-		log("#####################");
+		log("####################");
 		log("### doPart1 to be implemented");
-		log("#####################");
+		log("####################");
 	}
 	
 	public void doPart2()
 	{
-		log("#####################");
+		log("####################");
 		log("### doPart2 to be implemented");
-		log("#####################");
+		log("####################");
 	}
 	
 	protected void displayResultPart1(Object o)
 	{
 		log("");
-		log("#####################");
+		log("####################");
 		log("#### Result Part 1 = " + o.toString());
-		log("#####################");
+		log("####################");
 	}
 	
 	protected void displayResultPart2(Object o)
 	{
 		log("");
-		log("#####################");
+		log("####################");
 		log("#### Result Part 2 = " + o.toString());
-		log("#####################");
+		log("####################");
 	}
 	
 	protected void log(Object message)
