@@ -1,6 +1,6 @@
 package fr.home.mikedev;
 
-import fr.home.mikedev.aoc2024.Main12;
+import fr.home.mikedev.aoc2024.Main13;
 
 public class MainAoc 
 {
@@ -34,12 +34,12 @@ public class MainAoc
 		Main10 m10 = new Main10("Hoof It", "2024");
 		m10.doPartAll();
 		Main11 m11 = new Main11("Plutonian Pebbles", "2024");
-		m11.doPartAll();*/
+		m11.doPartAll();
 		Main12 m12 = new Main12("Garden Groups", "2024");
-		m12.doPartAll();
-		/*Main13 m13 = new Main13("", "2024");
+		m12.doPartAll();*/
+		Main13 m13 = new Main13("Claw Contraption", "2024");
 		m13.doPartAll();
-		Main14 m14 = new Main14("", "2024");
+		/*Main14 m14 = new Main14("", "2024");
 		m14.doPartAll();
 		Main15 m15 = new Main15("", "2024");
 		m15.doPartAll();
