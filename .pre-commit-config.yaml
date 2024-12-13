@@ -4,7 +4,6 @@ repos:
       hooks:
           - id: aoc-tiles
             args: 
-                - --create-all-days=true
                 - --contrast-improvement-type=dark
                 - --auto-add-tiles-to-git=amend
             # Optionally use these arguments. Auto add tiles to git adds the tiles to git,
