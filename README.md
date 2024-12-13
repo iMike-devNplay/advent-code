@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Advent Of Code</h1>
+<h2>Advent Of Code</h2>
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
