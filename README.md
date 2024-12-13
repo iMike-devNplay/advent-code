@@ -44,6 +44,12 @@
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main13.java">
   <img src=".aoc_tiles/tiles/2024/13.png" width="161px">
 </a>
+<h1 align="center">
+  2023 - 2 ⭐ - Java
+</h1>
+<a href="src/main/java/fr/home/mikedev/aoc2023/Main01.java">
+  <img src=".aoc_tiles/tiles/2023/01.png" width="161px">
+</a>
 <!-- AOC TILES END -->
 </body>
 </html>
