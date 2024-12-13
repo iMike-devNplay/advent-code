@@ -3,7 +3,7 @@
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2024 - 50 ⭐ - Java
+  2024 - 26 ⭐ - Java
 </h1>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main01.java">
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
@@ -43,42 +43,6 @@
 </a>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main13.java">
   <img src=".aoc_tiles/tiles/2024/13.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main14.java">
-  <img src=".aoc_tiles/tiles/2024/14.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main15.java">
-  <img src=".aoc_tiles/tiles/2024/15.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main16.java">
-  <img src=".aoc_tiles/tiles/2024/16.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main17.java">
-  <img src=".aoc_tiles/tiles/2024/17.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main18.java">
-  <img src=".aoc_tiles/tiles/2024/18.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main19.java">
-  <img src=".aoc_tiles/tiles/2024/19.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main20.java">
-  <img src=".aoc_tiles/tiles/2024/20.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main21.java">
-  <img src=".aoc_tiles/tiles/2024/21.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main22.java">
-  <img src=".aoc_tiles/tiles/2024/22.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main23.java">
-  <img src=".aoc_tiles/tiles/2024/23.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main24.java">
-  <img src=".aoc_tiles/tiles/2024/24.png" width="161px">
-</a>
-<a href="src/main/java/fr/home/mikedev/aoc2024/Main25.java">
-  <img src=".aoc_tiles/tiles/2024/25.png" width="161px">
 </a>
 <!-- AOC TILES END -->
 </body>
