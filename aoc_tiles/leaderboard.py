@@ -62,7 +62,7 @@ def request_leaderboard(year: int, config: Config) -> Dict[int, DayScores]:
         assert len(session_cookie) == 128, f"Session cookie is not 128 characters long, make sure to remove the prefix!"
         data = requests.get(
             PERSONAL_LEADERBOARD_URL.format(year=year),
-            headers={"User-Agent": "https://github.com/LiquidFun/aoc_tiles by Brutenis Gliwa"},
+            headers={"User-Agent": "https://github.com/iMike-devNplay"},
             cookies={"session": session_cookie},
         ).text
         leaderboard_path.parent.mkdir(exist_ok=True, parents=True)
