@@ -1,9 +1,10 @@
 <html>
 <body>
 <h2>Advent Of Code</h2>
+
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2024 - 26 ⭐ - Java
+  2024 - 29 ⭐ - Java
 </h1>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main01.java">
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
@@ -43,6 +44,12 @@
 </a>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main13.java">
   <img src=".aoc_tiles/tiles/2024/13.png" width="161px">
+</a>
+<a href="src/main/java/fr/home/mikedev/aoc2024/Main14.java">
+  <img src=".aoc_tiles/tiles/2024/14.png" width="161px">
+</a>
+<a href="src/main/java/fr/home/mikedev/aoc2024/Main15.java">
+  <img src=".aoc_tiles/tiles/2024/15.png" width="161px">
 </a>
 <h1 align="center">
   2023 - 6 ⭐ - Java
