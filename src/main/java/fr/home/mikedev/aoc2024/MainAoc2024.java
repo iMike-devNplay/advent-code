@@ -38,12 +38,12 @@ public class MainAoc2024
 		Main12 m12 = new Main12("Garden Groups", "2024");
 		m12.doPartAll();
 		Main13 m13 = new Main13("Claw Contraption", "2024");
-		m13.doPartAll();*/
+		m13.doPartAll();
 		Main14 m14 = new Main14("", "2024");
-		m14.doPartAll();
-		/*Main15 m15 = new Main15("", "2024");
+		m14.doPartAll();*/
+		Main15 m15 = new Main15("", "2024");
 		m15.doPartAll();
-		Main16 m16 = new Main16("", "2024");
+		/*Main16 m16 = new Main16("", "2024");
 		m16.doPartAll();
 		Main17 m17 = new Main17("", "2024");
 		m17.doPartAll();
