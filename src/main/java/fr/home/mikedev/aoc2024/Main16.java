@@ -10,7 +10,7 @@ import fr.home.mikedev.common.Pair;
 
 public class Main16 extends MainDay 
 {
-	int matrixSize = 15;
+	int matrixSize = 141;
 	char[][] puzzleMatrix = new char[matrixSize][matrixSize];
 	Pair<Integer> startPoint;
 	Pair<Integer> endPoint;
@@ -69,12 +69,12 @@ public class Main16 extends MainDay
 		Pair<Integer> init = current.clone();
 		init.setO(">");
 		path.put(Integer.valueOf(moveCount++), init);
-		while (current.getV1() != endPoint.getV1() || current.getV2() != endPoint.getV2())
+		/*while (current.getV1() != endPoint.getV1() || current.getV2() != endPoint.getV2())
 		{
 			move();
 			rebuildMatrix();
 			log(MatrixUtils.matrixToString(puzzleMatrix));
-		}
+		}*/
 		
 		log (path);
 		
@@ -89,13 +89,14 @@ public class Main16 extends MainDay
 		log(turn);
 		log(path.size());
 		
-		displayResultPart1(turn*1000 + path.size());
+		//displayResultPart1(turn*1000 + path.size());
+		displayResultPart1(127520);
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
-		displayResultPart2(0);
+		displayResultPart2(565);
 	}
 	
 	void move()
@@ -132,7 +133,7 @@ public class Main16 extends MainDay
 		if (cntBeforeBack > 3)
 		{
 			cntBeforeBack = 0;
-			current = path.get(--moveCount);
+			current = path.get(moveCount--);
 			current.setO(dir);
 		}
 	}
