@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import Union, Dict, List, Set
 
 import requests
-
 from aoc_tiles.config import Config
 
 # URL for the personal leaderboard (same for everyone)
