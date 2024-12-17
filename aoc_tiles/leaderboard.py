@@ -67,6 +67,5 @@ def request_leaderboard(year: int, config: Config) -> Dict[int, DayScores]:
         ).text
         leaderboard_path.parent.mkdir(exist_ok=True, parents=True)
         with open(leaderboard_path, "w") as file:
-            print(data)
             file.write(data)
     return _parse_leaderboard(leaderboard_path)
