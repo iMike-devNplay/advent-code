@@ -27,6 +27,7 @@ def _parse_leaderboard(leaderboard_path: Path) -> Dict[int, DayScores]:
     no_stars = "You haven't collected any stars... yet."
     start = '<span class="leaderboard-daydesc-both"> *Time *Rank *Score</span>\n'
     end = "</pre>"
+    print(leaderboard_path)
     with open(leaderboard_path) as file:
         html = file.read()
         if no_stars in html:
@@ -65,6 +66,7 @@ def request_leaderboard(year: int, config: Config) -> Dict[int, DayScores]:
             headers={"User-Agent": "https://github.com/iMike-devNplay"},
             cookies={"session": session_cookie},
         ).text
+        print(data)
         leaderboard_path.parent.mkdir(exist_ok=True, parents=True)
         with open(leaderboard_path, "w") as file:
             file.write(data)
