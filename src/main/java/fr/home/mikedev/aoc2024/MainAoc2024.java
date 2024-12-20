@@ -46,12 +46,12 @@ public class MainAoc2024
 		Main16 m16 = new Main16("Reindeer Maze", "2024");
 		m16.doPartAll();
 		Main17 m17 = new Main17("Chronospatial Computer", "2024");
-		m17.doPartAll();*/
+		m17.doPartAll();
 		Main18 m18 = new Main18("RAM Run", "2024");
-		m18.doPartAll();
-		/*Main19 m19 = new Main19("", "2024");
+		m18.doPartAll();*/
+		Main19 m19 = new Main19("", "2024");
 		m19.doPartAll();
-		Main20 m20 = new Main20("", "2024");
+		/*Main20 m20 = new Main20("", "2024");
 		m20.doPartAll();
 		Main21 m21 = new Main21("", "2024");
 		m21.doPartAll();
