@@ -4,6 +4,7 @@ import fr.home.mikedev.common.MainDay;
 
 public class Main17 extends MainDay 
 {
+	long initRegisterA;
 	long registerA;
 	long registerB;
 	long registerC;
@@ -20,14 +21,16 @@ public class Main17 extends MainDay
 	{
 		if (test)
 		{
-			registerA = Long.valueOf(2024);
+			registerA = Long.valueOf(initRegisterA);
 			registerB = Long.valueOf(0);
 			registerC = Long.valueOf(0);
 			program = new int[]{0, 3, 5, 4, 3, 0};
 		}
 		else
 		{
-			registerA = Long.valueOf(64751475);
+			// min =  35 184 372 088 832L
+			// max = 278 999 999 999 999L
+			registerA = Long.valueOf(278999999999999L);
 			registerB = Long.valueOf(0);
 			registerC = Long.valueOf(0);
 			program = new int[]{2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0};
@@ -36,7 +39,7 @@ public class Main17 extends MainDay
 	
 	public void doPart1()
 	{
-		retrieveData(true);
+		retrieveData(false);
 		pointer = 0;
 		
 		halt = false;
@@ -51,16 +54,32 @@ public class Main17 extends MainDay
 			}
 		}
 		
-		displayResultPart1(output);
+		displayResultPart1("2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,".length());
+		displayResultPart1(output.length());
+		//log(output);
+	}
+	
+	public void doPart2()
+	{                //37 221 270 076 916
+		/*String wantedOutput = "2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,";
+		initRegisterA = 1000000000000L;
+		String temp = "";
+		while (initRegisterA < 1000000000000000L || temp.length() < wantedOutput.length())
+		{
+			doPart1();
+			initRegisterA = initRegisterA+1000000000;
+			if (!temp.equals(output)) log(initRegisterA + " => " + output + " " + temp.length() + " " + wantedOutput.length());
+			temp = output;
+		}*/
 	}
 	
 	/* TODO : find a better way than brute force */
-	public void doPart2()
+	public void doPart2BruteForce()
 	{
 		retrieveData(false);
-		String wantedOutput = "2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,";
+		String wantedOutput = "2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,"; // 16car
 		//String wantedOutput = "0,3,5,4,3,0,";
-		long wantedRegisterA = 37221270076000L;
+		long wantedRegisterA = 37221200000000L;
 		while (!wantedOutput.equals(output))
 		{
 			registerA = wantedRegisterA;
@@ -81,7 +100,7 @@ public class Main17 extends MainDay
 			wantedRegisterA++;
 		}
 		
-		displayResultPart2(wantedRegisterA-1);
+		displayResultPart2(wantedRegisterA-1); //37221270076916
 	}
 	
 	public void execute(int opcode, int operand)
