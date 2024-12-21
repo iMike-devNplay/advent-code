@@ -44,7 +44,7 @@ public class Main01 extends MainDay
 		{
 			ecart += Math.abs(locationIdGroup1.get(i)-locationIdGroup2.get(i));
 		}
-		displayResultPart1(ecart);
+		setResultPart1(ecart);
 	}
 
 	public void doPart2()
@@ -56,6 +56,6 @@ public class Main01 extends MainDay
 			long count = locationIdGroup2.stream().filter(l -> l.equals(item)).count();
 			ecart += item * count;
 		}
-		displayResultPart2(ecart);
+		setResultPart2(ecart);
 	}
 }

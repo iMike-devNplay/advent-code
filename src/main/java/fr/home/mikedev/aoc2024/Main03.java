@@ -34,7 +34,7 @@ public class Main03 extends MainDay
 	{
 		retrieveData();
 		Long finalResult = cleanMemory(allCorruptedMemory.toString());
-	    displayResultPart1(finalResult);
+		setResultPart1(finalResult);
 
 	}
 		
@@ -65,7 +65,7 @@ public class Main03 extends MainDay
 			start = end;
 		}
 		Long finalResult = cleanMemory(allCleanMemory.toString());
-	    displayResultPart2(finalResult);
+		setResultPart2(finalResult);
 	}
 	
 	public Long cleanMemory(String corruptedMemory)

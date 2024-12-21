@@ -60,7 +60,7 @@ public class Main02 extends MainDay
 		for (Integer gameId : games.keySet())
 			if (checkGames(games.get(gameId), 12, 13, 14)) gameOk += gameId;
 		
-		displayResultPart1(gameOk);
+		setResultPart1(gameOk);
 	}
 	
 	public void doPart2()
@@ -71,7 +71,7 @@ public class Main02 extends MainDay
 		for (Integer gameId : games.keySet())
 			gamePower += gamePower(games.get(gameId));
 		
-		displayResultPart2(gamePower);
+		setResultPart2(gamePower);
 	}
 	
 	boolean checkGames(List<List<Pair<String>>> game, int maxRed, int maxGreen, int maxBlue)

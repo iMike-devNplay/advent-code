@@ -37,7 +37,7 @@ public class Main02 extends MainDay
 	public void doPart1()
 	{
 		retrieveData();
-		displayResultPart1(reports.size());
+		setResultPart1(reports.size());
 	}
 	
 	public void doPart2()
@@ -46,7 +46,7 @@ public class Main02 extends MainDay
 		{
 			if (fixReport(badReports.get(i))) reports.add(badReports.get(i));			
 		}
-		displayResultPart2(reports.size());
+		setResultPart2(reports.size());
 	}
 	
 	public boolean checkReport(List<Long> report)

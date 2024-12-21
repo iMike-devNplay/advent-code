@@ -91,7 +91,7 @@ public class Main05 extends MainDay
 		Integer sumMedians = 0;
 		for (int i = 0; i < medians.size(); i++) sumMedians += medians.get(i);
 		
-		displayResultPart1(sumMedians);
+		setResultPart1(sumMedians);
 	}
 		
 	public void doPart2()
@@ -112,7 +112,7 @@ public class Main05 extends MainDay
 		Integer sumMedians = 0;
 		for (int i = 0; i < medians.size(); i++) sumMedians += medians.get(i);
 		
-		displayResultPart2(sumMedians);
+		setResultPart2(sumMedians);
 	}
 	
 	public Integer checkForValidAndMedian(List<Integer> update)

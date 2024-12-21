@@ -74,7 +74,7 @@ public class Main08 extends MainDay
 					createAntennas(p.get(i), p.get(j), true);
 		}
 		part1Result = countAntinode+countAntinodeAntenna;
-		displayResultPart1(part1Result);
+		setResultPart1(part1Result);
 	}
 
 	public void doPart2()
@@ -92,7 +92,7 @@ public class Main08 extends MainDay
 				for (int j = i+1; j <p.size(); j++)
 					createAntennas(p.get(i), p.get(j), false);
 		}
-		displayResultPart2(countAntinode);
+		setResultPart2(countAntinode);
 	}
 	
 	public boolean putAntinode(Pair<Integer> antinode)

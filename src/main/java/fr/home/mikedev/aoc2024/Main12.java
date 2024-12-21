@@ -53,7 +53,7 @@ public class Main12 extends MainDay
 		for (String g : plots.keySet())
 			sum += fences.get(g) * plots.get(g).size();			
 		
-		displayResultPart1(sum);
+		setResultPart1(sum);
 	}
 	
 	public void doPart2()
@@ -78,7 +78,7 @@ public class Main12 extends MainDay
 			sum += size*sides;
 		}
 		
-		displayResultPart2(sum);
+		setResultPart2(sum);
 	}
 	
 	void buildFences(boolean withDiscount)

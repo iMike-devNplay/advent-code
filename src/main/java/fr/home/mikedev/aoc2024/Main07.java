@@ -51,7 +51,7 @@ public class Main07 extends MainDay
 		for (int i = 0; i < validCalibrations.size(); i++)
 			result += validCalibrations.get(i).get(0);
 		
-		displayResultPart1(result);
+		setResultPart1(result);
 	}
 
 	public void doPart2()
@@ -65,7 +65,7 @@ public class Main07 extends MainDay
 		result += calculation(200, 300);
 		result += calculation(300, 400);
 		result += calculation(400, 420);
-		displayResultPart2(result);
+		setResultPart2(result);
 	}
 	
 	public Long calculation(int startIndex, int endIndex)

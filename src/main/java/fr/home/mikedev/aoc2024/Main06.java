@@ -61,7 +61,7 @@ public class Main06 extends MainDay
 		String finalMatrix = MatrixUtils.matrixToString(puzzleMatrix);
 		Long countX = (long) StringUtils.countMatches(finalMatrix, "X"); // Long.valueOf(finalMatrix.split("X", -1).length-1) + Long.valueOf(finalMatrix.split("x", -1).length-1);
 		
-		displayResultPart1(countX);
+		setResultPart1(countX);
 	}
 		
 	public void doPart2()
@@ -107,7 +107,7 @@ public class Main06 extends MainDay
 			puzzleMatrix[d6c.getL()][d6c.getC()] = '.';
 		}
 		
-		displayResultPart2(loopObstacle);
+		setResultPart2(loopObstacle);
 	}
 	
 	public boolean isInfiniteLoop(char[][] matrix)

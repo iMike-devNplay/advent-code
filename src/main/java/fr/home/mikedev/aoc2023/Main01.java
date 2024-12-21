@@ -39,7 +39,7 @@ public class Main01 extends MainDay
 		for(String calibration : calibrations)
 		    sum += Integer.parseInt(getFirstAndLastDigit(calibration));
 		
-		displayResultPart1(sum); //54159
+		setResultPart1(sum); //54159
 	}
 	
 	public void doPart2()
@@ -50,7 +50,7 @@ public class Main01 extends MainDay
 	    for(String calibration : calibrations)
 	        sum += Integer.parseInt(getFirstAndLastDigitStr(calibration));
 	        
-		displayResultPart2(sum); //53866
+	    setResultPart2(sum); //53866
 	}
 	
 	private String getFirstAndLastDigit(String calibration)

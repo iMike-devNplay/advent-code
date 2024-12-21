@@ -83,7 +83,7 @@ public class Main14 extends MainDay
 		}
 
 		int safety = q1*q2*q3*q4;
-		displayResultPart1(safety); //218295000
+		setResultPart1(safety); //218295000
 	}
 	
 	public void doPart2()
@@ -117,7 +117,7 @@ public class Main14 extends MainDay
         {
             e.printStackTrace();
         }
-        displayResultPart2(6870);
+        setResultPart2(6870);
 	}
 	
 	public void moveRobot(Pair<Pair<Integer>> robot)

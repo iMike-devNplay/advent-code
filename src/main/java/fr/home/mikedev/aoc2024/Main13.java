@@ -69,7 +69,7 @@ public class Main13 extends MainDay
 		for (long[][] prizeInstruction : prizes)
 			sum += calculate(prizeInstruction);
 
-		displayResultPart1(sum);
+		setResultPart1(sum);
 	}
 	
 	public void doPart2()
@@ -81,7 +81,7 @@ public class Main13 extends MainDay
 		for (long[][] prizeInstruction : prizes)
 			sum += calculate(prizeInstruction);
 		
-		displayResultPart2(sum);
+		setResultPart2(sum);
 	}
 	
 	// A => 3 tokens

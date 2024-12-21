@@ -68,8 +68,8 @@ public class Main20 extends MainDay
 		buildUniquePath();
 		//log(MatrixUtils.matrixToString(puzzleMatrix));
 		
-		int fullDistance = distance(startPoint, endPoint);
-		log("FullDistance = " + fullDistance);
+		//int fullDistance = distance(startPoint, endPoint);
+		//log("FullDistance = " + fullDistance);
 		
 		int count = 0;
 		int minGain = 100;
@@ -96,15 +96,15 @@ public class Main20 extends MainDay
 			if (isValidShortcut(startPoint, p1, p2)) if ((distance(p0, p2)-2) >= minGain) count++;
 		}
 				
-		displayResultPart1(count); // 1404
+		setResultPart1(count); // 1404
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
 		
-		int fullDistance = distance(startPoint, endPoint);
-		log("FullDistance = " + fullDistance);
+		//int fullDistance = distance(startPoint, endPoint);
+		//log("FullDistance = " + fullDistance);
 		int count = 0;
 		int minGain = 100;
 		for (Pair<Integer> p0 : uniquePath)
@@ -124,7 +124,7 @@ public class Main20 extends MainDay
 			}
 		}
 		
-		displayResultPart2(count);
+		setResultPart2(count); //1 010 981
 	}
 	
 	void buildUniquePath()

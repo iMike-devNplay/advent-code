@@ -69,7 +69,7 @@ public class Main04 extends MainDay
 		count += rotated90.toString().split("SAMX", -1).length-1;
 		//System.out.println("+ Vertical reversed   : " + count.toString());
 		
-		displayResultPart1(count);
+		setResultPart1(count);
 	}
 		
 	public void doPart2()
@@ -93,7 +93,7 @@ public class Main04 extends MainDay
 		count += interm;
 		//System.out.println("  MSSM          : " + count.toString() + " (" + interm + ")");
 		
-		displayResultPart2(count);
+		setResultPart2(count);
 	}
 	
 	

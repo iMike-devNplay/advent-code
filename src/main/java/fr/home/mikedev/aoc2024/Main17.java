@@ -54,8 +54,8 @@ public class Main17 extends MainDay
 			}
 		}
 		
-		displayResultPart1("2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,".length());
-		displayResultPart1(output.length());
+		log("2,4,1,2,7,5,4,5,1,3,5,5,0,3,3,0,".length());
+		setResultPart1(output.length());
 		//log(output);
 	}
 	
@@ -100,7 +100,7 @@ public class Main17 extends MainDay
 			wantedRegisterA++;
 		}
 		
-		displayResultPart2(wantedRegisterA-1); //37221270076916
+		setResultPart2(wantedRegisterA-1); //37221270076916
 	}
 	
 	public void execute(int opcode, int operand)

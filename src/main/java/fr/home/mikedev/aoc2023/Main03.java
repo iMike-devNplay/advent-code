@@ -69,7 +69,7 @@ public class Main03 extends MainDay
 		for (String p : parts)
 		    sum += Integer.parseInt(p);
 		
-		displayResultPart1(sum);
+		setResultPart1(sum);
 	}
 	
 	public void doPart2()
@@ -123,7 +123,7 @@ public class Main03 extends MainDay
         }
 	    
 	    
-		displayResultPart2(sum);
+        setResultPart2(sum);
 	}
 	
 	public boolean adjacentToSymbol(Pair<Integer> digit)

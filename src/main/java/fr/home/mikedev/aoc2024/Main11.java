@@ -44,7 +44,7 @@ public class Main11 extends MainDay
 			blink(nbBlinkTodoPart1, stones[i]);
 		//long after = Instant.now().toEpochMilli();
 		//log (after-before);
-		displayResultPart1(countStones);
+		setResultPart1(countStones);
 	}
 	
 	public void doPart2()
@@ -82,7 +82,7 @@ public class Main11 extends MainDay
 		for (Long c : part2Stones.keySet())
 			countStones += part2Stones.get(c);
 		
-		displayResultPart2(countStones);
+		setResultPart2(countStones);
 	}
 	
 	void blink(int nbBlinks, Long stone)

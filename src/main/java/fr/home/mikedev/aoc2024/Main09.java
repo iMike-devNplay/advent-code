@@ -37,7 +37,7 @@ public class Main09 extends MainDay
 		prepareMemory();
 		defragment();
 		long checksum = checksum();
-		displayResultPart1(checksum);
+		setResultPart1(checksum);
 	}
 		
 	public void doPart2()
@@ -49,7 +49,7 @@ public class Main09 extends MainDay
 		prepareMemory();
 		defragment2();
 		long checksum = checksum();
-		displayResultPart2(checksum);
+		setResultPart2(checksum);
 	}
 	
 	void prepareMemory()

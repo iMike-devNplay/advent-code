@@ -22,18 +22,19 @@ public class Main22 extends MainDay
 		catch (Exception ex)
 		{
 			log("retrieveData() : Unable to retrieve data from file");
+            ex.printStackTrace();
 		}
 	}
 	
 	public void doPart1()
 	{
 		retrieveData();
-		displayResultPart1(0);
+		setResultPart1(0);
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
-		displayResultPart2(0);
+	    setResultPart2(0);
 	}
 }

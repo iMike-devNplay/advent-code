@@ -57,7 +57,7 @@ public class Main18 extends MainDay
 		paths = new TreeMap<Integer, List<Pair<Integer>>>();
 		Map<Pair<Integer>, Integer> distance = bfs();
 		
-		displayResultPart1(distance.get(endPoint));
+		setResultPart1(distance.get(endPoint));
 	}
 	
 	public void doPart2()
@@ -69,7 +69,7 @@ public class Main18 extends MainDay
             Map<Pair<Integer>, Integer> distance = bfs();
             if (distance.get(endPoint) == null) failingByte = bytes.get(i).getV2() + "," + bytes.get(i).getV1();
 	    }
-		displayResultPart2(failingByte);
+	    setResultPart2(failingByte);
 	}
 	
 	Map<Pair<Integer>, Integer> bfs()

@@ -3,6 +3,8 @@ package fr.home.mikedev.common;
 import java.io.BufferedReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
 
 import lombok.Data;
 
@@ -12,9 +14,12 @@ public abstract class MainDay
 	private String title;
 	private String year;
 	private String day;
-	private String resultPart1;
-	private String resultPart2;
+	private Object resultPart1;
+	private Object resultPart2;
 
+	private Duration resultTimePart1;
+    private Duration resultTimePart2;
+    
 	public MainDay()
 	{
 		this.setTitle("");
@@ -50,8 +55,19 @@ public abstract class MainDay
 		log("####################");
 		log("####  " + year + " - " +  day + " ####");
 		log("####################");
+		
+		Instant start = Instant.now();
 		doPart1();
+		Instant end = Instant.now();
+		resultTimePart1 = Duration.between(start, end);
+		displayResultPart1();
+		
+		start = Instant.now();
 		doPart2();
+		end = Instant.now();
+		resultTimePart2 = Duration.between(start, end);
+		
+		displayResultPart2();
 	}
 	
 	public void doPart1()
@@ -68,20 +84,20 @@ public abstract class MainDay
 		log("####################");
 	}
 	
-	protected void displayResultPart1(Object o)
+	protected void displayResultPart1()
 	{
 		log("");
 		log("####################");
-		log("#### Result Part 1 = " + o.toString());
-		log("####################");
+		log("#### Result Part 1 = " + resultPart1.toString());
+		log("#################### t = " + resultTimePart1.toMillis() + "ms");
 	}
 	
-	protected void displayResultPart2(Object o)
+	protected void displayResultPart2()
 	{
 		log("");
 		log("####################");
-		log("#### Result Part 2 = " + o.toString());
-		log("####################");
+		log("#### Result Part 2 = " + resultPart2.toString());
+		log("#################### t = " + resultTimePart2.toMillis() + "ms");
 	}
 	
 	protected void log(Object message)

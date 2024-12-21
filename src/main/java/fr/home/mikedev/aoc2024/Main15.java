@@ -73,7 +73,7 @@ public class Main15 extends MainDay
 		for (Pair<Integer> b : allBoxPosition.keySet())
 		    sum += 100 * b.getV1() + b.getV2();
 		
-		displayResultPart1(sum);
+		setResultPart1(sum);
 	}
 	
 	public void doPart2()
@@ -165,7 +165,7 @@ public class Main15 extends MainDay
         for (Pair<Integer> b : allBoxPosition.keySet())
             if (allBoxPosition.get(b).equals("[")) sum += 100 * b.getV1() + b.getV2();
         
-		displayResultPart2(sum); //1 404 917  30,36 au lieu de 31,36
+        setResultPart2(sum); //1 404 917  30,36 au lieu de 31,36
 		//1 405 017 too high
 	}
 	

@@ -15,8 +15,8 @@ public class Main19 extends MainDay
 {
     List<String> patterns;
     List<String> designs;
-    Map<String, Boolean> cache;
-    Map<String, Long> cache2;
+    Map<String, Boolean> cache; // memoization part1
+    Map<String, Long> cache2;   // memoization part2
     
     List<String> validDesigns;
     
@@ -63,7 +63,7 @@ public class Main19 extends MainDay
             if (checkDesign(d)) validDesigns.add(d);
         }
 		
-		displayResultPart1(validDesigns.size());  //206
+		setResultPart1(validDesigns.size());  //206
 	}
 	   
 	public void doPart2()
@@ -78,7 +78,7 @@ public class Main19 extends MainDay
             count += checkDesignCount(d);
         }
         
-		displayResultPart2(count); //622121814629343
+        setResultPart2(count); //622121814629343
 	}
 	
     boolean checkDesign(String design)

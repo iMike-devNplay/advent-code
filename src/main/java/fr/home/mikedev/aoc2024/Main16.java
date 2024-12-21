@@ -90,13 +90,13 @@ public class Main16 extends MainDay
 		log(path.size());
 		
 		//displayResultPart1(turn*1000 + path.size());
-		displayResultPart1(127520);
+		setResultPart1(127520);
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
-		displayResultPart2(565);
+	    setResultPart2(565);
 	}
 	
 	void move()

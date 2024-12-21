@@ -46,12 +46,12 @@ public class Main10 extends MainDay
 		initTrack(0, 0, puzzleMatrix.length, puzzleMatrix[0].length);
 
 		//log(uniqueTracks.keySet());
-		displayResultPart1(uniqueTracks.keySet().size());
+		setResultPart1(uniqueTracks.keySet().size());
 	}
 	
 	public void doPart2()
 	{
-		displayResultPart2(trailTracks.size());
+	    setResultPart2(trailTracks.size());
 	}
 	
 	private void initTrack(int minL, int minC, int maxL, int maxC)
