@@ -21,12 +21,12 @@ public class MainAoc2023
 		Main04 m4 = new Main04("Scratchcards", "2023");
 		m4.doPartAll();
 		Main05 m5 = new Main05("If You Give A Seed A Fertilizer", "2023");
-		m5.doPartAll();*/
+		m5.doPartAll();
 		Main06 m6 = new Main06("Wait For It", "2023");
-		m6.doPartAll();
-		/*Main07 m7 = new Main07("Camel Cards", "2023");
+		m6.doPartAll();*/
+		Main07 m7 = new Main07("Camel Cards", "2023");
 		m7.doPartAll();
-		Main08 m8 = new Main08("Haunted Wasteland", "2023");
+		/*Main08 m8 = new Main08("Haunted Wasteland", "2023");
 		m8.doPartAll();
 		Main09 m9 = new Main09("Mirage Maintenance", "2023");
 		m9.doPartAll();
