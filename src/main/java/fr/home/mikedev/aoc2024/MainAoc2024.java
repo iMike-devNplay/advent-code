@@ -56,12 +56,12 @@ public class MainAoc2024
 		Main21 m21 = new Main21("Keypad Conundrum", "2024");
 		m21.doPartAll();
 		Main22 m22 = new Main22("", "2024");
-		m22.doPartAll();*/
+		m22.doPartAll();
 		Main23 m23 = new Main23("LAN Party", "2024");
-		m23.doPartAll();
-		/*Main24 m24 = new Main24("", "2024");
+		m23.doPartAll();*/
+		Main24 m24 = new Main24("", "2024");
 		m24.doPartAll();
-		Main25 m25 = new Main25("", "2024");
+		/*Main25 m25 = new Main25("", "2024");
 		m25.doPartAll();*/
 	}
 }

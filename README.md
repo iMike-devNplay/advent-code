@@ -77,7 +77,7 @@
   <img src=".aoc_tiles/tiles/2024/23.png" width="161px">
 </a>
 <h1 align="center">
-  2023 - 12 ⭐ - Java
+  2023 - 13 ⭐ - Java
 </h1>
 <a href="src/main/java/fr/home/mikedev/aoc2023/Main01.java">
   <img src=".aoc_tiles/tiles/2023/01.png" width="161px">
@@ -96,6 +96,9 @@
 </a>
 <a href="src/main/java/fr/home/mikedev/aoc2023/Main06.java">
   <img src=".aoc_tiles/tiles/2023/06.png" width="161px">
+</a>
+<a href="src/main/java/fr/home/mikedev/aoc2023/Main07.java">
+  <img src=".aoc_tiles/tiles/2023/07.png" width="161px">
 </a>
 <!-- AOC TILES END -->
 </body>
