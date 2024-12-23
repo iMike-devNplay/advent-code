@@ -4,7 +4,7 @@
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2024 - 42 ⭐ - Java
+  2024 - 44 ⭐ - Java
 </h1>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main01.java">
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
@@ -68,6 +68,9 @@
 </a>
 <a href="src/main/java/fr/home/mikedev/aoc2024/Main21.java">
   <img src=".aoc_tiles/tiles/2024/21.png" width="161px">
+</a>
+<a href="src/main/java/fr/home/mikedev/aoc2024/Main22.java">
+  <img src=".aoc_tiles/tiles/2024/22.png" width="161px">
 </a>
 <h1 align="center">
   2023 - 12 ⭐ - Java
