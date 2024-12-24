@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 import java.util.stream.Collectors;
 
 import fr.home.mikedev.common.MainDay;
@@ -155,34 +153,5 @@ public class Main23 extends MainDay
 		biggestOne = computerGroups.keySet().stream().filter(count -> max == computerGroups.get(count)).sorted().toList();
 		String password = biggestOne.toString().substring(1, biggestOne.toString().length()-1).replace(" ", "");
 	    setResultPart2(password);
-	}
-	
-	Map<String, Integer> bfs(String computerStart)
-	{
-	    Queue<String> q = new LinkedList<String>();
-	    List<String> visited = new ArrayList<String>();
-	    Map<String, Integer> distance = new HashMap<String, Integer>();
-	    
-	    //visited.add(computerStart);
-	    distance.put(computerStart, 0);
-	    q.add(computerStart);
-	    
-	    while (!q.isEmpty())
-	    {
-	        String currentComputer = q.poll();
-	        Integer d = distance.get(currentComputer);
-	        if (!visited.contains(currentComputer))
-	        {
-		        for (String c: uniConnections.get(currentComputer))
-	            {
-	        		visited.add(c);
-	        		q.add(c);
-	        		Integer existingComputer;
-	        		if ((existingComputer = distance.get(c)) != null && existingComputer > d+1) distance.put(c, d+1);
-	        		else distance.put(c, d+1);
-	            }
-	        }
-	    }
-	    return distance;
 	}
 }
