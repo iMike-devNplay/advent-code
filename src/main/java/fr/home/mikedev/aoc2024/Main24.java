@@ -91,7 +91,7 @@ public class Main24 extends MainDay
 		// find wrong addition
 		//List<String> xbits = wires.keySet().stream().filter(w -> w.startsWith("x")).sorted().toList();
 		//List<String> ybits = wires.keySet().stream().filter(w -> w.startsWith("y")).sorted().toList(); 
-		List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
+		//List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
 		//List<Operation> xyOp = operations.stream().filter(o -> o.val1.startsWith("x") || o.val1.startsWith("y")).sorted().toList();
 
 		/*for (int i = 0 ; i < zbits.size(); i++)
@@ -113,7 +113,7 @@ public class Main24 extends MainDay
 			if (o.solve(wires) != wires.get(zbits.get(i))) log(zbits.get(i));
 			
 		}*/
-		zbits.forEach(z -> log(z + " = " + wires.get(z)));
+		/*zbits.forEach(z -> log(z + " = " + wires.get(z)));
 		for (String zOp : operationsMapResult.keySet().stream().filter(r -> r.startsWith("z")).toList())
 		{
 			Operation o = operationsMapResult.get(zOp);
@@ -121,8 +121,30 @@ public class Main24 extends MainDay
 			Integer currentResult = Operation.solve(wires, o.operator, findOpeXYOp(o.val1), findOpeXYOp(o.val2));
 			log(zOp + " = " + currentResult);
 			if (!currentResult.equals(wires.get(zOp))) log(zOp);
-		}
+		}*/
 		
+		String bytesX = " ";
+		List<String> xbits = wires.keySet().stream().filter(w -> w.startsWith("x")).sorted().toList();
+		for (String x : xbits.reversed())
+			bytesX += wires.get(x);
+		
+		String bytesY = " ";
+		List<String> ybits = wires.keySet().stream().filter(w -> w.startsWith("y")).sorted().toList();
+		for (String y : ybits.reversed())
+			bytesY += wires.get(y);
+		
+		String bytesZ= "";
+		List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
+		for (String z : zbits.reversed())
+			bytesZ += wires.get(z);
+		
+		log(bytesX);
+		log(bytesY);
+		log(bytesZ);
+		
+		log(Long.parseLong(bytesX.trim(), 2));
+		log(Long.parseLong(bytesY.trim(), 2));
+		log(Long.parseLong(bytesX.trim(), 2)+Long.parseLong(bytesY.trim(), 2));
 	    setResultPart2(0); // cqr,ncd,nfj,qnw,vkg,z15,z20,z37
 	}
 	
