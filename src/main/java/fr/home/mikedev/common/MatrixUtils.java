@@ -10,6 +10,14 @@ public class MatrixUtils
 		return sb.toString();
 	}
 	
+    public static String matrixToString(int[] a)
+    {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < a.length; i++)
+            sb.append(a[i]);
+        return sb.toString();
+    }
+    
 	public static String matrixToString(char[][] matrix)
 	{
 		StringBuffer sb = new StringBuffer();
