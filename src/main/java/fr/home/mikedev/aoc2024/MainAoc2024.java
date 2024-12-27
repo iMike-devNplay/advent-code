@@ -58,10 +58,10 @@ public class MainAoc2024
 		Main22 m22 = new Main22("Monkey Market", "2024");
 		m22.doPartAll();
 		Main23 m23 = new Main23("LAN Party", "2024");
-		m23.doPartAll();
+		m23.doPartAll();*/
 		Main24 m24 = new Main24("Crossed Wires", "2024");
-		m24.doPartAll();*/
-		Main25 m25 = new Main25("Code Chronicle", "2024");
-		m25.doPartAll();
+		m24.doPartAll();
+		/*Main25 m25 = new Main25("Code Chronicle", "2024");
+		m25.doPartAll();*/
 	}
 }

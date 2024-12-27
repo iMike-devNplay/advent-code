@@ -124,18 +124,18 @@ public class Main24 extends MainDay
 			if (!currentResult.equals(wires.get(zOp))) log(zOp);
 		}*/
 		
-		/*String bytesX = " ";
-		List<String> xbits = wires.keySet().stream().filter(w -> w.startsWith("x")).sorted().toList();
+		String bytesX = " ";
+		//List<String> xbits = wires.keySet().stream().filter(w -> w.startsWith("x")).sorted().toList();
 		for (String x : xbits.reversed())
 			bytesX += wires.get(x);
 		
 		String bytesY = " ";
-		List<String> ybits = wires.keySet().stream().filter(w -> w.startsWith("y")).sorted().toList();
+		//List<String> ybits = wires.keySet().stream().filter(w -> w.startsWith("y")).sorted().toList();
 		for (String y : ybits.reversed())
 			bytesY += wires.get(y);
 		
 		String bytesZ= "";
-		List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
+		//List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
 		for (String z : zbits.reversed())
 			bytesZ += wires.get(z);
 		
@@ -146,17 +146,20 @@ public class Main24 extends MainDay
 		log(Long.parseLong(bytesX.trim(), 2));
 		log(Long.parseLong(bytesY.trim(), 2));
 		log(Long.parseLong(bytesX.trim(), 2)+Long.parseLong(bytesY.trim(), 2));
-	    setResultPart2(0); // cqr,ncd,nfj,qnw,vkg,z15,z20,z37*/
+	    /*setResultPart2(0); // cqr,ncd,nfj,qnw,vkg,z15,z20,z37*/
 	    
-	    /*Map<String, String> faulted = new HashMap<String, String>();
+		// Store operation with wrong result
+	    Map<String, String> wrongResults = new HashMap<String, String>();
 	    for (Operation o : operations)
 	    {
 	        if (o.result.startsWith("z") 
-	                && !o.operator.equals("XOR") 
-	                && !o.result.equals("z45")) 
-	            faulted.put(o.result, "cas1");
+	                //&& !o.operator.equals("XOR")
+	                && o.operator.equals("AND")
+	                && !o.result.equals("z45")) // exclude last result, because no corresponding operation (additional bit) 
+	        	if (Operation.solve(wires, "AND", wires.get("x" + o.result.substring(1)), wires.get("y" + o.result.substring(1))) != wires.get(o.result)) 
+	        		wrongResults.put(o.result, "cas1");
 	        
-	        if (o.operator.equals("XOR") 
+	        /*if (o.operator.equals("XOR") 
 	                && !o.val1.startsWith("x") 
 	                && !o.val1.startsWith("y") 
 	                && !o.val1.startsWith("z")
@@ -166,20 +169,20 @@ public class Main24 extends MainDay
 	                && !o.result.startsWith("x")
 	                && !o.result.startsWith("y")
 	                && !o.result.startsWith("z")) 
-	            faulted.put(o.result, "cas2");
+	            wrongResults.put(o.result, "cas2");
 	        
 	        if (o.operator.equals("AND") 
 	                && !o.val1.equals("x00")
 	                && !o.val2.equals("x00"))
 	            for (Operation o2 : operations)
-	                if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && !o2.operator.equals("OR")) faulted.put(o.result, "cas3");
+	                if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && !o2.operator.equals("OR")) wrongResults.put(o.result, "cas3");
 	        
 	        if (o.operator.equals("XOR"))
                 for (Operation o2 : operations)
-                    if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && o2.operator.equals("OR")) faulted.put(o.result, "cas4");
+                    if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && o2.operator.equals("OR")) wrongResults.put(o.result, "cas4");*/
 	    }
-	    String result = faulted.keySet().stream().sorted().toList().toString().replace(" ", "");
-	    setResultPart2(result.substring(1, result.length()-1));*/
+	    String result = wrongResults.keySet().stream().sorted().toList().toString().replace(" ", "");
+	    setResultPart2(result.substring(1, result.length()-1));
 	}
 	
 	String findOpeXY(String val)
