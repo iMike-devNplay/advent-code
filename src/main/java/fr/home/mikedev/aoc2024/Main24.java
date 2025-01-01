@@ -82,7 +82,7 @@ public class Main24 extends MainDay
 		for (String z : zbits.reversed())
 			bytes += wires.get(z);
 
-		log(bytes);
+		//log(bytes);
 		setResultPart1(Long.parseLong(bytes, 2)); //48508229772400
 	}
 	
@@ -95,11 +95,33 @@ public class Main24 extends MainDay
 		List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
 		//List<Operation> xyOp = operations.stream().filter(o -> o.val1.startsWith("x") || o.val1.startsWith("y")).sorted().toList();
 
+		/*boolean retenu = false;
 		for (int i = 0 ; i < zbits.size()-1; i++)
 		{
-		    log(xbits.get(i) + "=" + wires.get(xbits.get(i)) + " AND " + ybits.get(i)+ "=" + wires.get(ybits.get(i)) + " => " + Operation.solve(wires, "AND", wires.get(xbits.get(i)), wires.get(ybits.get(i))) + "    (" + zbits.get(i) + "=" + wires.get(zbits.get(i)));
+		    int sum = 0;
+		    
+		    if (retenu)
+		    {
+		        sum = 1 + wires.get(xbits.get(i)) + wires.get(ybits.get(i));
+		        retenu = false;
+		    }
+		    else sum = wires.get(xbits.get(i)) + wires.get(ybits.get(i));
+		    if (sum == 3)
+		    {
+		        sum = 1;
+		        retenu = true;
+		    }
+		    else if (sum == 2) 
+		    {
+		        sum = 0; 
+		        retenu = true;
+		    }
+		    else retenu = false;
+		    
+		    log(xbits.get(i) + "=" + wires.get(xbits.get(i)) + " + " + ybits.get(i)+ "=" + wires.get(ybits.get(i)) + " => " + sum + "    (" + zbits.get(i) + "=" + wires.get(zbits.get(i)));
 		}
-		setResultPart2(0);
+		if (retenu) log("1 ");
+		setResultPart2(0);*/
 		/*log(wires);
 		for (int i = 0 ; i < xbits.size(); i++)
 		{
@@ -125,41 +147,43 @@ public class Main24 extends MainDay
 		}*/
 		
 		String bytesX = " ";
-		//List<String> xbits = wires.keySet().stream().filter(w -> w.startsWith("x")).sorted().toList();
-		for (String x : xbits.reversed())
-			bytesX += wires.get(x);
+		for (String x : xbits.reversed()) bytesX += wires.get(x);
 		
 		String bytesY = " ";
-		//List<String> ybits = wires.keySet().stream().filter(w -> w.startsWith("y")).sorted().toList();
-		for (String y : ybits.reversed())
-			bytesY += wires.get(y);
+		for (String y : ybits.reversed()) bytesY += wires.get(y);
 		
 		String bytesZ= "";
-		//List<String> zbits = wires.keySet().stream().filter(w -> w.startsWith("z")).sorted().toList();
-		for (String z : zbits.reversed())
-			bytesZ += wires.get(z);
-		
+		for (String z : zbits.reversed()) bytesZ += wires.get(z);
+
 		log(bytesX);
 		log(bytesY);
 		log(bytesZ);
 		
 		log(Long.parseLong(bytesX.trim(), 2));
 		log(Long.parseLong(bytesY.trim(), 2));
-		log(Long.parseLong(bytesX.trim(), 2)+Long.parseLong(bytesY.trim(), 2));
+		log("Final true result : " + (Long.parseLong(bytesX.trim(), 2)+Long.parseLong(bytesY.trim(), 2)));
+		
+		log("Temp result : " + Long.parseLong(bytesZ.trim(), 2));
+		
+		
 	    /*setResultPart2(0); // cqr,ncd,nfj,qnw,vkg,z15,z20,z37*/
 	    
 		// Store operation with wrong result
+		/*
+		 * SUM = (A XOR B) XOR retenue
+         * retenue = (A AND B) OR (retenue AND (A XOR B))
+		 * 
+		 * 
+		 */
 	    Map<String, String> wrongResults = new HashMap<String, String>();
 	    for (Operation o : operations)
 	    {
 	        if (o.result.startsWith("z") 
-	                //&& !o.operator.equals("XOR")
-	                && o.operator.equals("AND")
+	                && !o.operator.equals("XOR") // adder is an XOR, if not, result is wrong
 	                && !o.result.equals("z45")) // exclude last result, because no corresponding operation (additional bit) 
-	        	if (Operation.solve(wires, "AND", wires.get("x" + o.result.substring(1)), wires.get("y" + o.result.substring(1))) != wires.get(o.result)) 
 	        		wrongResults.put(o.result, "cas1");
 	        
-	        /*if (o.operator.equals("XOR") 
+	        if (o.operator.equals("XOR") 
 	                && !o.val1.startsWith("x") 
 	                && !o.val1.startsWith("y") 
 	                && !o.val1.startsWith("z")
@@ -179,7 +203,7 @@ public class Main24 extends MainDay
 	        
 	        if (o.operator.equals("XOR"))
                 for (Operation o2 : operations)
-                    if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && o2.operator.equals("OR")) wrongResults.put(o.result, "cas4");*/
+                    if ((o.result.equals(o2.val1) || o.result.equals(o2.val2)) && o2.operator.equals("OR")) wrongResults.put(o.result, "cas4");
 	    }
 	    String result = wrongResults.keySet().stream().sorted().toList().toString().replace(" ", "");
 	    setResultPart2(result.substring(1, result.length()-1));
