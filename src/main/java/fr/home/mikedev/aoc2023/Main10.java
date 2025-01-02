@@ -1,21 +1,37 @@
 package fr.home.mikedev.aoc2023;
 
 import java.io.BufferedReader;
+import java.util.HashMap;
+import java.util.Map;
 
 import fr.home.mikedev.common.MainDay;
+import fr.home.mikedev.common.Pair;
 
 public class Main10 extends MainDay 
 {
+    int matrixSize = 140;
+    char[][] puzzleMatrix = new char[matrixSize][matrixSize];
+    Map<Pair<Long>, String> browse;
+    
 	public Main10(String title, String year) {super(title, year, "10");}
+	
+	public void initData()
+	{
+	    browse = new HashMap<Pair<Long>, String>();
+	}
 	
 	public void retrieveData()
 	{
 		String line = null;	
 		try(BufferedReader reader = this.getReader())
 		{
+		    int i = 0;
 			while((line = reader.readLine()) != null)
 			{
-			    log(line);
+			    puzzleMatrix[i] = line.toCharArray();
+			    for (int j = 0; j < matrixSize; j++)
+			        browse.put(Pair.<Long>builder().v1(Long.valueOf(i)).v2(Long.valueOf(j)).build(), String.valueOf(puzzleMatrix[i][j]));
+			    i++;
 			}
 		}
 		catch (Exception ex)
@@ -27,8 +43,19 @@ public class Main10 extends MainDay
 		
 	public void doPart1()
 	{
+	    initData();
 	    retrieveData();
-		setResultPart1(0);
+	    
+	    Pair<Long> nextPoint = Pair.<Long>builder().v1(Long.valueOf(25)).v2(Long.valueOf(93)).o("D").build();
+	    int count = 0;
+	    while(!nextPoint.getO().equals("S"))
+	    {
+	        count++;
+	        nextPoint = getNext(nextPoint, nextPoint.getO());
+	    }
+	    
+	    
+		setResultPart1((count+1)/2);
 	}
 	
 	public void doPart2()
@@ -36,4 +63,147 @@ public class Main10 extends MainDay
 		//retrieveData();
 	    setResultPart2(0);
 	}
+	
+	Pair<Long> getNext(Pair<Long> pos, String direction)
+    {
+        Pair<Long> currentPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2())).build();
+        String currentPosDir = browse.get(currentPos);
+        
+        switch (currentPosDir.toCharArray()[0])
+        {
+            case '|':
+                if (direction.equals("D")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())+1).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("J") || nextPosDir.equals("L"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("D").build();
+                    }
+                }
+                else if (direction.equals("U"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())-1).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("7") || nextPosDir.equals("F")) 
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("U").build();
+                    }                   
+                }
+                break;
+            case '-':
+                if (direction.equals("R")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()+1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("R").build();
+                    }
+                }
+                else if (direction.equals("L"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()-1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("L") || nextPosDir.equals("F"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("L").build();
+                    }                   
+                }
+                break;
+            case 'L':
+                if (direction.equals("D")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()+1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("R").build();
+                    }
+                }
+                else if (direction.equals("L"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1()-1)).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("7") || nextPosDir.equals("F"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("U").build();
+                    }                   
+                }
+                break;
+            case 'J':
+                if (direction.equals("R")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1()-1)).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("F") || nextPosDir.equals("7"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("U").build();
+                    }
+                }
+                else if (direction.equals("D"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()-1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("L") || nextPosDir.equals("F"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("L").build();
+                    }                   
+                }
+                break;
+            case '7':
+                if (direction.equals("R")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1()+1)).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("L") || nextPosDir.equals("J"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("D").build();
+                    }
+                }
+                else if (direction.equals("U"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()-1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("L") || nextPosDir.equals("F"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("L").build();
+                    }                   
+                }
+                break;
+            case 'F':
+                if (direction.equals("L")) 
+                {   
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1()+1)).v2(Long.valueOf(pos.getV2())).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("|") || nextPosDir.equals("L") || nextPosDir.equals("J"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("D").build();
+                    }
+                }
+                else if (direction.equals("U"))
+                {
+                    Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1())).v2(Long.valueOf(pos.getV2()+1)).build();
+                    String nextPosDir = browse.get(nextPos);
+                    if (nextPosDir != null)
+                    {
+                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7"))
+                            return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("R").build();
+                    }                   
+                }
+                break;
+        }
+        return Pair.<Long>builder().o("S").build();
+    }
 }
