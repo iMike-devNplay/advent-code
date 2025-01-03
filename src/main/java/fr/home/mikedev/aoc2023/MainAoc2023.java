@@ -29,12 +29,12 @@ public class MainAoc2023
 		Main08 m8 = new Main08("Haunted Wasteland", "2023");
 		m8.doPartAll();
 		Main09 m9 = new Main09("Mirage Maintenance", "2023");
-		m9.doPartAll();*/
+		m9.doPartAll();
 		Main10 m10 = new Main10("Pipe Maze", "2023");
-		m10.doPartAll();
-		/*Main11 m11 = new Main11("Cosmic Expansion", "2023");
+		m10.doPartAll();*/
+		Main11 m11 = new Main11("Cosmic Expansion", "2023");
 		m11.doPartAll();
-		Main12 m12 = new Main12("Hot Springs", "2023");
+		/*Main12 m12 = new Main12("Hot Springs", "2023");
 		m12.doPartAll();
 		Main13 m13 = new Main13("Point of Incidence", "2023");
 		m13.doPartAll();

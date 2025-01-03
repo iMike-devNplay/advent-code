@@ -1,7 +1,9 @@
 package fr.home.mikedev.aoc2023;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import fr.home.mikedev.common.MainDay;
@@ -9,15 +11,19 @@ import fr.home.mikedev.common.Pair;
 
 public class Main10 extends MainDay 
 {
-    int matrixSize = 140;
-    char[][] puzzleMatrix = new char[matrixSize][matrixSize];
+    int matrixHeight = 140;
+    int matrixWidth  = 140;
+    char[][] puzzleMatrix = new char[matrixHeight][matrixWidth];
     Map<Pair<Long>, String> browse;
+    
+    List<Pair<Long>> path;
     
 	public Main10(String title, String year) {super(title, year, "10");}
 	
 	public void initData()
 	{
 	    browse = new HashMap<Pair<Long>, String>();
+	    path = new ArrayList<Pair<Long>>();
 	}
 	
 	public void retrieveData()
@@ -29,7 +35,7 @@ public class Main10 extends MainDay
 			while((line = reader.readLine()) != null)
 			{
 			    puzzleMatrix[i] = line.toCharArray();
-			    for (int j = 0; j < matrixSize; j++)
+			    for (int j = 0; j < matrixWidth; j++)
 			        browse.put(Pair.<Long>builder().v1(Long.valueOf(i)).v2(Long.valueOf(j)).build(), String.valueOf(puzzleMatrix[i][j]));
 			    i++;
 			}
@@ -47,21 +53,47 @@ public class Main10 extends MainDay
 	    retrieveData();
 	    
 	    Pair<Long> nextPoint = Pair.<Long>builder().v1(Long.valueOf(25)).v2(Long.valueOf(93)).o("D").build();
-	    int count = 0;
-	    while(!nextPoint.getO().equals("S"))
+	    //Pair<Long> nextPoint = Pair.<Long>builder().v1(Long.valueOf(8)).v2(Long.valueOf(13)).o("D").build();
+	    while(!path.contains(nextPoint))
 	    {
-	        count++;
+	        path.add(nextPoint);
 	        nextPoint = getNext(nextPoint, nextPoint.getO());
 	    }
-	    
-	    
-		setResultPart1((count+1)/2);
+		setResultPart1(path.size()/2); // 6956
 	}
 	
 	public void doPart2()
 	{
 		//retrieveData();
-	    setResultPart2(0);
+	    //first : set all item not in path to ground
+	    for (int l = 0; l < matrixHeight; l++)
+        {
+            for (int c = 0; c < matrixWidth; c++)
+            {
+                Pair<Long> p = Pair.<Long>builder().v1(Long.valueOf(l)).v2(Long.valueOf(c)).o(String.valueOf(puzzleMatrix[l][c])).build();
+                if (!path.contains(p)) puzzleMatrix[l][c] = '.';
+            }
+        }
+	    
+	    int innerCount = 0;
+	    for (int l = 0; l < matrixHeight; l++)
+	    {
+	        for (int c = 0; c < matrixWidth; c++)
+	        {
+	            Pair<Long> p = Pair.<Long>builder().v1(Long.valueOf(l)).v2(Long.valueOf(c)).o(String.valueOf(puzzleMatrix[l][c])).build();
+	            if (!path.contains(p))
+	            {
+	                int edgeCount = 0;
+	                for (int c2 = c+1; c2 < matrixWidth; c2++)
+	                {
+	                    if (puzzleMatrix[l][c2] == 'S' || puzzleMatrix[l][c2] == 'F' || puzzleMatrix[l][c2] == '7' || puzzleMatrix[l][c2] == '|') edgeCount++;
+	                }
+	                if (edgeCount%2 != 0) innerCount++;
+	            }
+	        }
+	    }
+	    
+	    setResultPart2(innerCount);  // 455
 	}
 	
 	Pair<Long> getNext(Pair<Long> pos, String direction)
@@ -100,7 +132,7 @@ public class Main10 extends MainDay
                     String nextPosDir = browse.get(nextPos);
                     if (nextPosDir != null)
                     {
-                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7"))
+                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7")  || nextPosDir.equals("S"))
                             return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("R").build();
                     }
                 }
@@ -122,7 +154,7 @@ public class Main10 extends MainDay
                     String nextPosDir = browse.get(nextPos);
                     if (nextPosDir != null)
                     {
-                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7"))
+                        if (nextPosDir.equals("-") || nextPosDir.equals("J") || nextPosDir.equals("7")  || nextPosDir.equals("S")) // I know where it starts and where it ends
                             return Pair.<Long>builder().v1(nextPos.getV1()).v2(nextPos.getV2()).o("R").build();
                     }
                 }
@@ -159,7 +191,7 @@ public class Main10 extends MainDay
                     }                   
                 }
                 break;
-            case '7':
+            case '7','S':
                 if (direction.equals("R")) 
                 {   
                     Pair<Long> nextPos = Pair.<Long>builder().v1(Long.valueOf(pos.getV1()+1)).v2(Long.valueOf(pos.getV2())).build();
@@ -204,6 +236,6 @@ public class Main10 extends MainDay
                 }
                 break;
         }
-        return Pair.<Long>builder().o("S").build();
+        return null; //Pair.<Long>builder().o("S").build();
     }
 }
