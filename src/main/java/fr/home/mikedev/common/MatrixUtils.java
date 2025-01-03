@@ -60,6 +60,11 @@ public class MatrixUtils
 			}
 	}
 
+	public static int distanceGrid(int x1, int y1, int x2, int y2)
+    {
+        return Math.abs(x1-x2) + Math.abs(y1-y2);
+    }
+	
     public static boolean isOutsideMatrix(Pair<Integer> plot, int matrixSize)
     {
         if (plot.getV1() < 0 || plot.getV1() > matrixSize-1 || plot.getV2() < 0 || plot.getV2() > matrixSize-1) return true;
