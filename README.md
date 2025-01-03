@@ -2,7 +2,6 @@
 <body>
 <h2>Advent Of Code</h2>
 
-
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
   2024 - 50 ⭐ - Java
@@ -83,7 +82,7 @@
   <img src=".aoc_tiles/tiles/2024/25.png" width="161px">
 </a>
 <h1 align="center">
-  2023 - 19 ⭐ - Java
+  2023 - 20 ⭐ - Java
 </h1>
 <a href="src/main/java/fr/home/mikedev/aoc2023/Main01.java">
   <img src=".aoc_tiles/tiles/2023/01.png" width="161px">
